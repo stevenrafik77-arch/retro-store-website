@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Store - المتجر العتيق</title>
+    <!-- ربط ملف التنسيق الخارجي -->
+    <link rel="stylesheet" href="style.css">
+    <!-- ربط خطوط جوجل العربية (Cairo و Changa) -->
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="store-logo">
+            <span class="retro-text">RETRO STORE</span>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="ابحث عن قطعة أثرية..." onkeyup="searchProducts()">
+                <span class="search-icon">🔍</span>
+                <div class="promo-banner">
+                    <p>ينتهي عرض التصفية العتيق خلال:</p>
+                    <div id="countdown" class="nixie-clock">00:00:00</div>
+                </div>
+            </div>
+            <div class="categories-bar">
+                <button class="cat-btn active" onclick="filterCategory('الكل', this)">الكل</button>
+                <button class="cat-btn" onclick="filterCategory('راديو', this)">راديو</button>
+                <button class="cat-btn" onclick="filterCategory('كاميرات', this)">كاميرات</button>
+                <button class="cat-btn" onclick="filterCategory('تلفاز', this)">تلفاز</button>
+                <button class="cat-btn" onclick="filterCategory('هواتف', this)">هواتف</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="living-room">
+        <div class="products-grid" id="products-list">
+            <!-- سيتم توليد المنتجات بواسطة script.js -->
+        </div>
+    </main>
+
+    <!-- زر السلة العائم -->
+    <div class="floating-cart" onclick="toggleCart()">
+        <div class="cart-emoji">🛒</div>
+        <div class="cart-badge" id="cart-count">0</div>
+        <span class="cart-label">سلة الشراء</span>
+    </div>
+
+    <!-- نافذة السلة -->
+    <div id="cart-modal" class="modal">
+        <div class="retro-paper">
+            <span class="close-btn" onclick="toggleCart()">&times;</span>
+            <h2 class="modal-title">قائمة المشتريات</h2>
+            <div id="cart-items"></div>
+            <hr class="dashed-line">
+            <h3>الإجمالي: <span id="total-price">0</span> درهم</h3>
+            <button class="action-btn" onclick="checkout()">تأكيد الشراء الآن</button>
+        </div>
+    </div>
+
+    <!-- صوت النقرة الريترو -->
+    <audio id="click-sound" src="https://www.soundjay.com" preload="auto"></audio>
+
+    <!-- ربط ملف البرمجة الخارجي -->
+    <script src="script.js"></script>
+</body>
+</html>
